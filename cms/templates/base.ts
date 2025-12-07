@@ -1,12 +1,14 @@
-import { renderMessage } from "./messages.js";
+import type { Request } from "express";
+
+import { renderMessage } from "./messages.ts";
 
 const locale = {
   "en": {
     "nav": {
       "dashboard": "Dashboard",
-      // "entries": "Entries",
-      // "settings": "Settings",
-      // "users": "Users",
+      "entries": "Entries", // not used atm, (needed because times doesn't understand the comments below)
+      "settings": "Settings", // not used atm
+      "users": "Users", // not used atm
       "logout": "Logout",
     },
     "footer": {
@@ -16,9 +18,9 @@ const locale = {
   "de": {
     "nav": {
       "dashboard": "Dashboard",
-      // "entries": "Einträge",
-      // "settings": "Einstellungen",
-      // "users": "Benutzer",
+      "entries": "Einträge", // not used atm
+      "settings": "Einstellungen", // not used atm
+      "users": "Benutzer", // not used atm
       "logout": "Abmelden",
     },
     "footer": {
@@ -27,7 +29,7 @@ const locale = {
   },
 };
 
-export default ({ content, req }) => {
+export default (content: string, req: Request) => {
   const ref = req.path || "";
   const currentLanguage = req.lang || "en";
   const loggedIn = req.locals.loggedIn || false;
@@ -51,16 +53,16 @@ export default ({ content, req }) => {
         </div>
         <div>
           ${
-            loggedIn
-              ? `
+    loggedIn
+      ? `
           <span><a href="/cms">${navLabels.dashboard}</a></span>
           <!-- <span><a href="/cms/entries">${navLabels.entries}</a></span> -->
           <!-- <span><a href="/cms/settings">${navLabels.settings}</a></span> -->
           <!-- <span><a href="/cms/users">${navLabels.users}</a></span> -->
           <span><a href="/cms/logout">${navLabels.logout}</a></span>
           `
-              : ""
-          }
+      : ""
+  }
           <span><a href="/set-lang?lang=en&ref=${ref}">EN</a></span>
           <span><a href="/set-lang?lang=de&ref=${ref}">DE</a></span>
         </div>
@@ -68,13 +70,13 @@ export default ({ content, req }) => {
     </header>
     <main>
       ${
-        messageType
-          ? `
+    messageType
+      ? `
       <section>
         ${renderMessage(messageType, currentLanguage)}
       </section>`
-          : ""
-      }
+      : ""
+  }
       ${content}
     </main>
     <footer>

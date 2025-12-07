@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 
-import baseTemplate from "../../templates/adminBase.js";
+import baseTemplate from "../../templates/base.ts";
 
 const locale = {
   "en": {
@@ -64,6 +64,6 @@ export default (req: Request, res: Response) => {
   </form>
 </div>
 `;
-  const html = baseTemplate({ req, content });
+  const html = baseTemplate(content, req);
   res.send(html);
 };
