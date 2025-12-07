@@ -1,4 +1,4 @@
-# reboot-framework
+# reboot-template-app
 
 _This is currently a work-in-progress project._
 
@@ -6,7 +6,7 @@ This is a template project to built a dynamic website with few external dependen
 
 Features:
 
-* File based routing (routes are generated at startup time based on the files in the ./website-example/pages and ./cms/pages folders)
+* File based routing (routes are generated at startup time based on the files in the ./site/routes and ./cms/routes folders)
 * Login page for the admin interface/CMS (session/cookie based authentication)
 * Basic functionality to implement translations (cookie based)
 
