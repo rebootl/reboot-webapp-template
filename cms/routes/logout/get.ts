@@ -25,7 +25,7 @@ export default function loginPageContent(req: Request, res: Response) {
     });
     console.log("Cleared cookie:", cookieName);
 
-    res.redirect("/admin/login?messageType=successLogout");
+    res.redirect("/cms/login?messageType=successLogout");
   } catch (error) {
     console.error("Logout error:", error);
     res.status(500).send("An error occurred during logout");

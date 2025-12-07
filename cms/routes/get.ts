@@ -10,7 +10,7 @@ const _locale = {
 export default (req: Request, res: Response) => {
   // const currentLanguage = req.lang || "en";
   if (!req.locals.loggedIn) {
-    res.redirect("/admin/login");
+    res.redirect("/cms/login");
     return;
   }
 

@@ -66,7 +66,7 @@ export default async function f(req: Request, res: Response) {
     //   admin: Boolean(user.admin),
     // };
 
-    res.redirect("/admin");
+    res.redirect("/cms");
   } catch (error) {
     console.error("Login error:", error);
     res.status(500).send("An error occurred during login");
