@@ -1,4 +1,8 @@
-const messages = {
+const messages: {
+  [key: string]: {
+    [lang: string]: string;
+  };
+} = {
   // Success messages
   successEdit: {
     en: "Entry updated successfully!",
@@ -49,7 +53,7 @@ const messages = {
 };
 
 export const renderMessage = (
-  messageType: string,
+  messageType: string | null,
   currentLanguage = "en",
 ): string => {
   if (!messageType || !messages[messageType]) {

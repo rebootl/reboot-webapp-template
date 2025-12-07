@@ -33,8 +33,10 @@ export default (content: string, req: Request) => {
   const ref = req.path || "";
   const currentLanguage = req.lang || "en";
   const loggedIn = req.locals.loggedIn || false;
-  const messageType = req.query.messageType || null;
+  let messageType = req.query.messageType || null;
   const navLabels = locale[currentLanguage].nav;
+
+  messageType = typeof messageType === "string" ? messageType : null;
 
   return `
 <!DOCTYPE html>
