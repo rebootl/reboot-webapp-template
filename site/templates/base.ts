@@ -1,12 +1,10 @@
-// const html = (_strings: TemplateStringsArray, ..._values: string[]) => {
-//   return _strings.reduce((acc, str, i) => acc + str + (_values[i] || ""), "");
-// };
+import { html } from "../../lib/helper.ts";
 
 export const baseTemplate = (content: string /*, req: Request */) => {
   // const ref = req.path || '';
   // const currentLanguage = req.lang || 'en';
 
-  return `
+  return html`
     <!DOCTYPE html>
     <html lang="en" class="dark">
       <head>

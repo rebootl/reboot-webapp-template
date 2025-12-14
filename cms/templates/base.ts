@@ -1,5 +1,6 @@
-// const html = (_strings: TemplateStringsArray, ..._values: string[]) => {};
 import type { Request } from "express";
+
+import { html } from "../../lib/helper.ts";
 
 import { renderMessage } from "./messages.ts";
 
@@ -39,7 +40,7 @@ export default (content: string, req: Request) => {
 
   messageKey = typeof messageKey === "string" ? messageKey : null;
 
-  return `
+  return html`
     <!DOCTYPE html>
     <html lang="en" class="dark">
       <head>
@@ -81,15 +82,13 @@ export default (content: string, req: Request) => {
               <p class="text-dark-muted">reboot.li - CMS</p>
             </div>
             <div class="flex flex-wrap items-center gap-3 text-sm text-dark-muted">
-              ${
-    loggedIn
-      ? `
+              ${loggedIn
+                ? `
             <a href="/cms" class="hover:text-emerald-300 transition">${navLabels.dashboard}</a>
             <a href="/cms/logout" class="hover:text-emerald-300 transition">${navLabels.logout}</a>
             <span class="text-dark-border px-2">|</span>
           `
-      : ""
-  }
+                : ""}
               <a
                 href="/set-lang?lang=en&ref=${ref}"
                 class="hover:text-emerald-300 transition"
@@ -104,14 +103,12 @@ export default (content: string, req: Request) => {
 
         <main class="flex-1 w-full bg-dark-bg/40">
           <div class="max-w-4xl mx-auto px-6 py-10 space-y-8">
-            ${
-    messageKey
-      ? `
+            ${messageKey
+              ? `
         <section class="rounded-2xl border border-emerald-500/40 bg-emerald-500/5 p-6">
           ${renderMessage(messageKey, currentLanguage)}
         </section>`
-      : ""
-  } ${content}
+              : ""} ${content}
           </div>
         </main>
 
