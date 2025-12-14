@@ -1,10 +1,12 @@
-const html = (_strings: TemplateStringsArray, ..._values: string[]) => {};
+// const html = (_strings: TemplateStringsArray, ..._values: string[]) => {
+//   return _strings.reduce((acc, str, i) => acc + str + (_values[i] || ""), "");
+// };
 
 export const baseTemplate = (content: string /*, req: Request */) => {
   // const ref = req.path || '';
   // const currentLanguage = req.lang || 'en';
 
-  return html`
+  return `
     <!DOCTYPE html>
     <html lang="en" class="dark">
       <head>
