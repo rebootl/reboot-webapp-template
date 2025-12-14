@@ -76,7 +76,7 @@ export default (content: string, req: Request) => {
           class="border-b border-dark-border bg-dark-bg/50 backdrop-blur-sm sticky top-0 z-40"
         >
           <div
-            class="max-w-4xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-3"
+            class="mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-3"
           >
             <div>
               <p class="text-dark-muted">reboot.li - CMS</p>
@@ -85,6 +85,7 @@ export default (content: string, req: Request) => {
               ${loggedIn
                 ? `
             <a href="/cms" class="hover:text-emerald-300 transition">${navLabels.dashboard}</a>
+            <a href="/cms/entries" class="hover:text-emerald-300 transition">${navLabels.entries}</a>
             <a href="/cms/logout" class="hover:text-emerald-300 transition">${navLabels.logout}</a>
             <span class="text-dark-border px-2">|</span>
           `
@@ -102,12 +103,15 @@ export default (content: string, req: Request) => {
         </header>
 
         <main class="flex-1 w-full bg-dark-bg/40">
-          <div class="max-w-4xl mx-auto px-6 py-10 space-y-8">
+          <div class="px-6 py-6">
             ${messageKey
               ? `
-        <section class="rounded-2xl border border-emerald-500/40 bg-emerald-500/5 p-6">
-          ${renderMessage(messageKey, currentLanguage)}
-        </section>`
+          <div class="max-w-4xl mx-auto space-y-8">
+            <section class="rounded-2xl border border-emerald-500/40 bg-emerald-500/5 p-6">
+              ${renderMessage(messageKey, currentLanguage)}
+            </section>
+          </div>
+        `
               : ""} ${content}
           </div>
         </main>

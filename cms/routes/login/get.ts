@@ -32,7 +32,7 @@ const locale = {
 export default (req: Request, res: Response) => {
   const currentLanguage = req.lang || "en";
   const content = html`
-    <section class="space-y-8">
+    <section class="space-y-8 py-10">
       <header class="text-center space-y-2">
         <h1 class="text-4xl font-bold text-white">${locale[currentLanguage]
           .login.title}</h1>
