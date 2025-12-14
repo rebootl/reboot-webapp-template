@@ -14,7 +14,7 @@ const locale = {
       "logout": "Logout",
     },
     "footer": {
-      "text": "Content managed with care.",
+      "text": "Content management for reboot.li.",
     },
   },
   "de": {
@@ -26,7 +26,7 @@ const locale = {
       "logout": "Abmelden",
     },
     "footer": {
-      "text": "Inhalte sorgsam verwaltet.",
+      "text": "Content management for reboot.li.",
     },
   },
 };
