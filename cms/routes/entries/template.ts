@@ -2,9 +2,9 @@ import type { EntryLocale } from "./locale.ts";
 import { html } from "../../../lib/helper.ts";
 
 const badgeStyles: Record<string, string> = {
-  nerdstuff: "bg-purple-500/20 text-purple-200 border border-purple-500/50",
-  cheatsheet: "bg-yellow-500/20 text-amber-200 border border-yellow-500/50",
-  default: "bg-emerald-500/20 text-emerald-200 border border-emerald-500/50",
+  nerdstuff: "bg-purple-500/20 text-purple-200",
+  cheatsheet: "bg-yellow-500/20 text-amber-200",
+  default: "bg-emerald-500/20 text-emerald-200",
 };
 
 export type EntryType = {
@@ -40,6 +40,7 @@ export default (locale: EntryLocale, entries: EntryType[]) =>
               <th class="px-4 py-3">${locale.labels.visibilityTitle}</th>
               <th class="px-4 py-3">${locale.labels.created}</th>
               <th class="px-4 py-3">${locale.labels.modified}</th>
+              <th class="px-4 py-3">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -51,7 +52,7 @@ export default (locale: EntryLocale, entries: EntryType[]) =>
               return `
                   <tr class="border-t border-dark-border/70 hover:bg-dark-bg/50">
                     <td class="px-4 py-4">
-                      <span class="inline-flex items-center px-2 py-1 text-[0.65rem] tracking-[0.2em] rounded-full ${tagClasses}">
+                      <span class="inline-flex items-center px-2 py-1 text-[0.65rem] rounded-md font-medium ${tagClasses}">
                         ${normalized || "entry"}
                       </span>
                     </td>
@@ -59,6 +60,14 @@ export default (locale: EntryLocale, entries: EntryType[]) =>
                     <td class="px-4 py-4">${entry.visibilityLabel}</td>
                     <td class="px-4 py-4">${entry.createdLabel}</td>
                     <td class="px-4 py-4">${entry.modifiedLabel}</td>
+                    <td class="px-4 py-4">
+                      <a
+                        href="/cms/entries/edit/${entry.id}"
+                        class="inline-flex items-center px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em] rounded-md bg-indigo-900 text-white hover:bg-indigo-800"
+                      >
+                        EDIT
+                      </a>
+                    </td>
                   </tr>
                 `;
             })
