@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 
 import type { EntryLocale } from "./locale.ts";
-import type { EntryCard } from "./template.ts";
+import type { EntryType } from "./template.ts";
 
 import baseTemplate from "../../templates/base.ts";
 import locale from "./locale.ts";
@@ -36,11 +36,10 @@ function formatDate(value: string, lang: string) {
   }
   return new Intl.DateTimeFormat(lang, {
     dateStyle: "medium",
-    timeStyle: "short",
   }).format(date);
 }
 
-function buildCard(row: EntryRow, currentLocale: EntryLocale, lang: string): EntryCard {
+function buildCard(row: EntryRow, currentLocale: EntryLocale, lang: string): EntryType {
   const visibilityLabel = Number(row.private) === 1
     ? currentLocale.labels.visibility.private
     : currentLocale.labels.visibility.public;
