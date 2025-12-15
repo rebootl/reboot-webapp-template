@@ -21,9 +21,6 @@ export default (locale: EntryLocale, entries: EntryType[]) =>
     <section class="space-y-6 mx-auto">
       <header class="space-y-3 text-left">
         <h1 class="text-lg font-bold text-white">Entries</h1>
-        <p class="text-dark-muted text-sm max-w-3xl">
-          ${locale.description}
-        </p>
       </header>
 
       ${entries.length === 0
@@ -31,9 +28,9 @@ export default (locale: EntryLocale, entries: EntryType[]) =>
         ${locale.emptyState}
       </div>`
         : `
-      <div class="border border-dark-border bg-dark-bg shadow-lg overflow-auto">
+      <div class="border-b border-dark-border bg-dark-bg shadow-lg overflow-auto">
         <table class="min-w-full text-sm text-left text-dark-muted">
-          <thead class="bg-dark-surface text-xs uppercase tracking-[0.3em] text-dark-muted/80">
+          <thead class="bg-dark-surface/50 text-xs text-dark-muted/80">
             <tr>
               <th class="px-4 py-3">Type</th>
               <th class="px-4 py-3">Title</th>
@@ -52,7 +49,7 @@ export default (locale: EntryLocale, entries: EntryType[]) =>
               return `
                   <tr class="border-t border-dark-border/70 hover:bg-dark-bg/50">
                     <td class="px-4 py-4">
-                      <span class="inline-flex items-center px-2 py-1 text-[0.65rem] rounded-md font-medium ${tagClasses}">
+                      <span class="inline-flex items-center px-2 py-1 text-[0.65rem] rounded-md ${tagClasses}">
                         ${normalized || "entry"}
                       </span>
                     </td>
@@ -63,10 +60,10 @@ export default (locale: EntryLocale, entries: EntryType[]) =>
                     <td class="px-4 py-4">
                       <a
                         href="/cms/entries/edit/${entry.id}"
-                        class="inline-flex items-center px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em] border border-dark-border rounded-md bg-gray-700 text-white hover:bg-gray-600 transition-colors"
-                      >
-                        EDIT
-                      </a>
+                         class="inline-flex items-center px-2.5 py-1 font-semibold border border-dark-border rounded-md text-white hover:bg-gray-800 transition-colors"
+                       >
+                         Edit
+                       </a>
                     </td>
                   </tr>
                 `;
