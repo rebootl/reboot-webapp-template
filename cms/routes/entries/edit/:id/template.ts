@@ -18,16 +18,12 @@ export type EntryEditData = {
 export default (entry: EntryEditData) => {
   const entryId = String(entry.id);
   return html`
-    <section class="space-y-10">
+    <section class="max-w-3xl mx-auto">
       <header class="space-y-2">
         <h1 class="text-lg font-bold text-white">Editing Entry</h1>
-        <p class="text-sm text-dark-muted">
-          Entry ID: ${entryId}<br />
-        </p>
       </header>
-
       <form
-        class="max-w-3xl m-auto space-y-6 rounded-2xl border border-dark-border p-6"
+        class="space-y-6 my-4 rounded-2xl border border-dark-border p-6"
         action="/cms/entries/edit/${entryId}"
         method="POST"
       >
@@ -87,8 +83,17 @@ export default (entry: EntryEditData) => {
           >
             Save
           </button>
+          <a
+            href="/cms/entries"
+            class="ml-4 inline-flex items-center justify-center rounded-lg bg-dark-border px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-dark-border/70"
+          >
+            Cancel
+          </a>
         </div>
       </form>
+      <p class="text-sm text-dark-muted">
+        Entry ID: ${entryId}<br />
+      </p>
     </section>
   `;
 };

@@ -18,7 +18,7 @@ export type EntryType = {
 
 export default (locale: EntryLocale, entries: EntryType[]) =>
   html`
-    <section class="space-y-8 mx-auto">
+    <section class="space-y-6 mx-auto">
       <header class="space-y-3 text-left">
         <h1 class="text-lg font-bold text-white">Entries</h1>
         <p class="text-dark-muted text-sm max-w-3xl">
