@@ -32,12 +32,24 @@ export default (req: Request, res: Response) => {
   const isPrivate = String(req.body.private || "0") === "1" ? 1 : 0;
 
   try {
-    const existsStmt = req.db.prepare("SELECT id FROM entries WHERE id = ? LIMIT 1");
+    const existsStmt = req.db.prepare("SELECT * FROM entries WHERE id = ? LIMIT 1");
     const existing = existsStmt.get(id);
     if (!existing) {
       res.status(404).send("Entry not found");
       return;
     }
+
+    const versionStmt = req.db.prepare(
+      "INSERT INTO entries_versions (entry_id, created_at, last_modified_at, title, content) VALUES (?, ?, ?, ?, ?)",
+    );
+    const versionCreatedAt = new Date().toISOString();
+    versionStmt.run(
+      id,
+      versionCreatedAt,
+      existing.modified_at,
+      existing.title,
+      existing.content,
+    );
 
     const updateStmt = req.db.prepare(
       "UPDATE entries SET title = ?, type = ?, content = ?, private = ?, modified_at = ? WHERE id = ?",
