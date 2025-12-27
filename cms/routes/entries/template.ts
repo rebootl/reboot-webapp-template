@@ -30,7 +30,7 @@ export default (locale: EntryLocale, entries: EntryType[]) =>
             <h1 class="text-2xl font-bold text-white">Entries</h1>
             <a
               href="/cms/entries/new"
-              class="inline-flex items-center justify-center rounded-md bg-green-300 px-4 py-2 text-xs font-semibold text-black transition hover:bg-emerald-300"
+              class="inline-flex items-center justify-center rounded-md bg-emerald-400 px-4 py-2 text-xs font-semibold text-black transition hover:bg-emerald-500"
             >
               Add entry
             </a>
@@ -69,7 +69,7 @@ export default (locale: EntryLocale, entries: EntryType[]) =>
                     <td class="px-4 py-4">
                       <a
                         href="/cms/entries/edit/${entry.id}"
-                         class="inline-flex items-center px-2.5 py-1 font-semibold border border-dark-border rounded-md text-white hover:bg-gray-800 transition-colors"
+                         class="inline-flex items-center px-2.5 py-1 font-semibold border border-dark-border rounded-md text-white hover:bg-dark-surface/50 transition-colors"
                        >
                          Edit
                        </a>

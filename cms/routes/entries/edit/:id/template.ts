@@ -34,7 +34,7 @@ export default (entry: EntryEditData) => {
               type="text"
               name="title"
               value="${escapeHtml(entry.title)}"
-              class="w-full rounded-xl border border-dark-border bg-dark-bg/80 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+              class="w-full rounded-xl border border-dark-border bg-dark-bg/50 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
               required
             />
           </label>
@@ -44,7 +44,7 @@ export default (entry: EntryEditData) => {
               type="text"
               name="type"
               value="${escapeHtml(entry.type)}"
-              class="w-full rounded-xl border border-dark-border bg-dark-bg/80 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+              class="w-full rounded-xl border border-dark-border bg-dark-bg/50 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
               required
             />
           </label>
@@ -54,7 +54,7 @@ export default (entry: EntryEditData) => {
 
             <select
               name="private"
-              class="w-full rounded-xl border border-dark-border bg-dark-bg/80 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+              class="w-full rounded-xl border border-dark-border bg-dark-bg/50 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
             >
               <option value="0" ${entry.isPrivate
                 ? ""
@@ -71,7 +71,7 @@ export default (entry: EntryEditData) => {
             <textarea
               name="content"
               rows="8"
-              class="w-full h-80 rounded-2xl border border-dark-border bg-dark-bg/80 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+              class="w-full h-80 rounded-2xl border border-dark-border bg-dark-bg/50 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
             >${escapeHtml(entry.content)}</textarea>
           </div>
         </div>
@@ -79,13 +79,13 @@ export default (entry: EntryEditData) => {
         <div class="flex justify-start mt-6">
           <button
             type="submit"
-            class="inline-flex items-center justify-center rounded-md bg-green-300 px-5 py-2 text-xs font-semibold text-black transition hover:bg-emerald-300"
+            class="inline-flex items-center justify-center rounded-md bg-emerald-400 px-5 py-2 text-xs font-semibold text-black transition hover:bg-emerald-500"
           >
             Save
           </button>
           <a
             href="/cms/entries"
-            class="ml-4 inline-flex items-center border border-dark-border bg-dark-bg rounded-md px-5 py-2 text-xs font-semibold text-white hover:bg-dark-surface/20 transition-colors"
+            class="ml-4 inline-flex items-center border border-dark-border rounded-md px-5 py-2 text-xs font-semibold text-white hover:bg-dark-bg/50 transition-colors"
           >
             Cancel
           </a>

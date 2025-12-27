@@ -55,7 +55,7 @@ export default (req: Request, res: Response) => {
             name="username"
             required
             placeholder="${locale[currentLanguage].login.usernamePlaceholder}"
-            class="w-full rounded-xl border border-dark-border bg-dark-bg/70 px-4 py-3 text-white placeholder:text-dark-muted focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-300/60"
+            class="w-full rounded-xl border border-dark-border bg-dark-bg/50 px-4 py-3 text-white placeholder:text-dark-muted focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
           />
         </div>
 
@@ -69,14 +69,14 @@ export default (req: Request, res: Response) => {
             name="password"
             required
             placeholder="${locale[currentLanguage].login.passwordPlaceholder}"
-            class="w-full rounded-xl border border-dark-border bg-dark-bg/70 px-4 py-3 text-white placeholder:text-dark-muted focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-300/60"
+            class="w-full rounded-xl border border-dark-border bg-dark-bg/50 px-4 py-3 text-white placeholder:text-dark-muted focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
           />
         </div>
 
         <div class="flex justify-center">
           <button
             type="submit"
-            class="w-full rounded-xl bg-green-300 px-5 py-3 font-medium text-black hover:bg-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-300/60"
+            class="w-full rounded-xl bg-emerald-400 px-5 py-3 font-medium text-black hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
           >
             ${locale[currentLanguage].login.buttonText}
           </button>
