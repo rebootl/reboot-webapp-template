@@ -1,29 +1,14 @@
 import type { Request, Response } from "express";
-// import { SQLOutputValue } from "node:sqlite";
 
-// import locale from "./locale.ts";
-// import template from "./template.ts";
 import { baseTemplate } from "../templates/base.ts";
 
-// export type NewsData = Record<string, SQLOutputValue> | null | undefined;
+export type MainContentEntry = {
+  title?: string;
+  content?: string;
+  [key: string]: unknown;
+};
 
-// function getNewsData(
-//   req: Request,
-// ): NewsData {
-//   const language = req.lang || "en";
-//   try {
-//     const stmt = req.db.prepare(
-//       "SELECT * FROM entries WHERE type = ? AND draft = 0 AND language = ? ORDER BY created_at DESC LIMIT 1",
-//     );
-//     const latestEntry = stmt.get("news", language);
-//     return latestEntry;
-//   } catch (error) {
-//     console.error("Error fetching blog entries:", error);
-//     return null;
-//   }
-// }
-
-const content = `
+const defaultContent = `
   <section class="section">
     <div class="container">
       <h1 class="title">Welcome to Reboot Framework!</h1>
@@ -34,14 +19,23 @@ const content = `
   </section>
 `;
 
-export default (_req: Request, res: Response) => {
-  // const language = req.lang || "en";
-  // const newsData = getNewsData(req);
+function getMainContentEntry(req: Request) {
+  // const lang = req.lang || "en";
+  try {
+    const stmt = req.db.prepare(
+      "SELECT * FROM entries WHERE type = ? AND private = 0 ORDER BY created_at DESC LIMIT 1",
+    );
+    return stmt.get("maincontent") as MainContentEntry | null;
+  } catch (error) {
+    console.error("Error fetching main content entry:", error);
+    return null;
+  }
+}
 
-  // const content = template(
-  //   locale[language] || locale.en,
-  //   newsData,
-  // );
-  const html = baseTemplate(content /*, req */);
+export default (req: Request, res: Response) => {
+  const entry = getMainContentEntry(req);
+  const content = entry?.content?.trim() ? entry.content : defaultContent;
+
+  const html = baseTemplate(content);
   res.send(html);
 };
