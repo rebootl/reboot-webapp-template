@@ -13,35 +13,6 @@ export const baseTemplate = (content: string /*, req: Request */) => {
         <title>reboot.li - Cem's Personal Website</title>
       	<link rel="stylesheet" href="/static/style.css"></link>
       	<link rel="stylesheet" href="/static/tailwind.css"></link>
-        <style>
-        .pride-text {
-          color: #fff;
-          transition: background 200ms ease, color 200ms ease, filter 200ms ease;
-          display: inline-block;
-        }
-
-        .pride-text:hover {
-          background: linear-gradient(90deg, #e40303 0%, #ff8c00 16%, #ffed00 32%, #008026 48%, #004dff 64%, #750787 80%);
-          background-size: 200% 200%;
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          animation: pride-shift 6s linear infinite;
-          filter: brightness(1.12);
-        }
-
-        @keyframes pride-shift {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-        </style>
       </head>
       <body class="bg-dark-bg text-dark-text min-h-screen flex flex-col">
         <header
@@ -153,8 +124,9 @@ export const baseTemplate = (content: string /*, req: Request */) => {
               </p>
               <p class="text-dark-muted text-sm">
                 Built using <span class="font-mono text-indigo-300"
-                >JavaScript</span> and <span class="font-mono text-indigo-300"
-                >sqlite</span>
+                >Deno</span>, <span class="font-mono text-indigo-300"
+                >sqlite</span> and <span class="font-mono text-indigo-300"
+                >tailwindcss.</span>
               </p>
               <p class="text-sm">
                 <span class="pride-text">Love is love • Care is care</span>

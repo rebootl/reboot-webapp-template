@@ -3,10 +3,9 @@
 .md-content {
 
 	h2, h3, h4 {
-		margin: calc(var(--spacing) * 8) 0;
+		margin-top: calc(var(--spacing) * 8);
+		margin-bottom: calc(var(--spacing) * 4);
 		font-weight: var(--font-weight-semibold);
-		/* color: var(--color-gray-150); */
-		border-bottom: 1px solid var(--color-emerald-700);
 	}
 
 	h2 {
@@ -22,33 +21,50 @@
 	}
 	
 	p {
-		margin: calc(var(--spacing) * 6) 0;
+		margin: calc(var(--spacing) * 4) 0;
+	  /* .leading-relaxed */
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+
 		/* line-height: calc(var(--spacing) * 8); */
 		/* line-height: 1.5; */
 		/* color: var(--color-gray-100); */
 	}
 
+	strong {
+	  /* .font-semibold */
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+	}
+
+	em {
+		font-style: italic;
+	}
+
 	hr {
 		border: none;
-		border-top: 1px solid var(--color-emerald-700);
-		margin: calc(var(--spacing) * 8) 0;
+		border-top: 1px solid var(--color-dark-border);
+		margin: calc(var(--spacing) * 6) 0;
 	}
 
 	ul {
-		margin: calc(var(--spacing) * 6) 0;
-		padding-left: calc(var(--spacing) * 8);
+		padding-left: calc(var(--spacing) * 5);
 		list-style-type: disc;
-		color: var(--color-gray-100);
-		line-height: calc(var(--spacing) * 8);
-		/* line-height: calc(var(--leading-relaxed)); */
+		color: var(--color-slate-400);
+		/* .space-y-2 */
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
+    }
 	}
 
 	a {
-		color: var(--color-emerald-400);
+		color: var(--color-green-300);
 	}
 
 	a:hover {
-		/* color: var(--color-emerald-300); */
+		/* color: var(--color-green-200); */
 		text-decoration: underline;
 	}
 
@@ -70,4 +86,32 @@
 	  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
 	  font-size: var(--text-sm, 0.9rem);
 	}
+}
+
+.pride-text {
+  color: #fff;
+  transition: background 200ms ease, color 200ms ease, filter 200ms ease;
+  display: inline-block;
+}
+
+.pride-text:hover {
+  background: linear-gradient(90deg, #e40303 0%, #ff8c00 16%, #ffed00 32%, #008026 48%, #004dff 64%, #750787 80%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: pride-shift 6s linear infinite;
+  filter: brightness(1.12);
+}
+
+@keyframes pride-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
